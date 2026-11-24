@@ -30,6 +30,9 @@ def main() -> int:
     if not (1 <= len(text) <= MAX_CHARS):
         print(f"excuse is {len(text)} chars, must be 1-{MAX_CHARS}", file=sys.stderr)
         return 1
+    if "\n" in text or "\r" in text:
+        print("excuse must be a single line", file=sys.stderr)
+        return 1
     if text != text.strip() or not text:
         print("excuse must be non-blank text", file=sys.stderr)
         return 1
